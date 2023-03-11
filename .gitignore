@@ -40,4 +40,5 @@ vignettes/*.pdf
 .Renviron
 
 # Data files
-data/
+data/data_processed/
+data/data_raw/

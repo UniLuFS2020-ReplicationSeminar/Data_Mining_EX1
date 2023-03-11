@@ -1,5 +1,5 @@
 ---
-title: "Excercise 1"
+title: "Class Excercise 1"
 author: "Tobias Hoesli, Miguel, Patrick"
 date: "`r Sys.Date()`"
 output: pdf_document
@@ -9,7 +9,10 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Introduction
+
+For this excersise we will be using the dataset **Quality of Governnment** Dataset. You can find the codebook here.
+
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
