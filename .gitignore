@@ -19,7 +19,7 @@
 
 # RStudio files
 .Rproj.user/
-.Rproj
+Data_Mining_EX1.Rproj
 
 # produced vignettes
 vignettes/*.html
