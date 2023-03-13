@@ -1,8 +1,9 @@
 ---
 title: "Class Excercise 1"
-author: "Tobias Hoesli, Miguel, Patrick"
+author: "Miguel, Patrick Stöckli, Tobias Hoesli"
 date: "`r Sys.Date()`"
 output: pdf_document
+urlcolor: 'blue'
 ---
 
 ```{r setup, include=FALSE}
@@ -11,15 +12,37 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
-For this excersise we will be using the dataset **Quality of Governnment** Dataset. You can find the codebook here.
+For this excersise we will be using the dataset **Quality of Governnment** Dataset. You can find the codebook [here](https://github.com/UniLuFS2020-ReplicationSeminar/Data_Mining_EX1/blob/f8314e3e5aef74dd7a3f3a26b7e0ffe7b2a4d3c3/data/codebook_bas_jan22.pdf).
 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+### Regressionanalyisis
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
+
+
+```{r Load TS Data and Regressions, warning=FALSE, message=FALSE}
+
+source("../code/regression.R")
+
+```
+
+```{r Stargazer Regressionanalysis, results='asis'}
+#Load package "labelled" to generate table
+library(stargazer)
+
+#Generate a well-formatted table
+stargazer(regression_a, regression_b, regression_c, 
+          title="Regression on the Share of Women in Parliament (Lower and Single Houses) ", 
+          dep.var.caption="", 
+          dep.var.labels.include=FALSE,
+          covariate.labels=c("Islam","Level of Democracy", "Real GDP per Capita"), 
+          digits=2,
+          keep.stat=c("rsq", "adj.rsq", "n"), 
+          notes=c("Notes: Standard errors in parentheses."), 
+          notes.align = "c", 
+          notes.label="",
+          no.space=TRUE,
+          type = 'latex')
 ```
 
 ## Including Plots
