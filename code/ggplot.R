@@ -14,11 +14,15 @@ View(dataset)
 ggdata <- dataset %>% 
   select(
     cname, #Country name
-    year, #Year               
     ipu_l_sw, #Share of Women (Lower and Single Houses) 
     fh_ipolity2, #Level of Democracy (Freedom House/Imputed Polity) 
-    arda_isgenpct, #Islam: Total (% Adherents) 
     mad_gdppc, #Real GDP per Capita
   )
-                 
+
+library(ggplot2)
+
+plot1 <- ggplot(ggdata, aes(x = ipu_l_sw))+
+  geom_boxplot()
+
+print(plot1)
 
