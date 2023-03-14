@@ -21,8 +21,15 @@ ggdata <- dataset %>%
 
 library(ggplot2)
 
+#Share of Women in Boxplot
 plot1 <- ggplot(ggdata, aes(x = ipu_l_sw))+
-  geom_boxplot()
+  geom_boxplot()+ 
+  labs(title = "Share of Women (Lower and Single Houses)", 
+                      subtitle = "Rwanda has the highest share with 61.3", 
+                      caption = "THE QOG BASIC DATASET 2022", 
+                      x = "share of women in percentage", 
+
+  )
 
 print(plot1)
 
