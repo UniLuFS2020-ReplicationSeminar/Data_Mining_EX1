@@ -9,7 +9,7 @@ urlcolor: 'blue'
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 ```
 
 ## Introduction
@@ -34,19 +34,32 @@ Higher degrees of democracy may lead to more open political structures and, as a
   
 The proportion of women in the lower and single houses of parliament may be lower in nations with greater percentages of Muslims due to cultural or religious norms that restrict women's involvement in politics. We therefore hypothesize that there will be fewer women in lower and single houses of parliament in nations with greater rates of Islamic adherents.
 
-
-
-
 ## Methods 
 
 
 ### Visualizations
 
-Data Exploration
+We wanted to examine how women are represented in parliament across various political systems and nations in these charts. In the first plot, which is a boxplot, the percentage of women in lower and single chambers of parliament across nations is visually summarized. For nations where the share of women in parliament is higher than 40%, the second plot—a scatter plot—looks at the connection between the degree of democracy and the proportion of women in the lower and single houses of parliament. We can differentiate between countries and look for a correlation between these two variables by coloring the points according to the names of the countries.  
+These viusalizations offer insights into the representation of women in politics across different countries and political systems.
 
-### Regressionanalyisis
+```{r, echo=FALSE}
+
+source("../code/visualization.R")
+
+```
+
+```{r Plots Exploration ,echo=FALSE, warning=FALSE, message= FALSE, fig.show="hold", out.width="50%"}
+par(mar = c(4, 4, .1, .1))
+
+plot_box_women
+plot_point_women
+
+```
 
 
+### Regressionanalysis
+
+Some Text to describe what we did.
 
 
 ```{r Load TS Data and Regressions, warning=FALSE, message=FALSE}
@@ -95,7 +108,7 @@ ggplot(data_ts_2, aes(x = arda_isgenpct+fh_ipolity2+mad_gdppc, y = ipu_l_sw)) +
 ```
   
 
-```{r Stargazer Regressionanalysis, results='asis'}
+```{r Stargazer Regressionanalysis, echo=FALSE, results='asis'}
 #Load package "labelled" to generate table
 library(stargazer)
 
@@ -118,5 +131,8 @@ stargazer(regression_a, regression_b, regression_c,
 
 ## Results  
 
-In the graphics aswell as in the regression we see that having Islam as State religion it has a negative influence on the womens' share in parliament and the democracy index.
-In the regression we controlled for additional variables. Even though the data is one sided we would need to consider more variables that could have on womens' share and democracy index next to Islam. With this data alone we cannot conclude that Islam is the only nor the biggest factor that has influence on the above mentioned points.
+Islam has a statistically significant negative connection with the proportion of women in parliament in all three models. This indicates that there are fewer women in parliament in nations with higher levels of Islam. The real GDP per capita and democracy level factors are not statistically significant.
+Low R-squared values for all three models suggest that they do not adequately account for the variation in the dependent variable.  
+
+As a result of this analysis, it can be concluded that there is evidence to support the notion that nations with higher levels of Islam have a lower proportion of women in parliament.
+However, With this data alone we cannot conclude that Islam is the only, nor the biggest factor that has influence on the above mentioned points.
