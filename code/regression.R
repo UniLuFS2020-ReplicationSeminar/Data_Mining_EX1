@@ -2,24 +2,19 @@
 #CE1
 #Part 1: Some regressions
 
-#Load package "haven" in order to import the STATA data set
+#Load package "tidyverse", "haven" as well as "here"
+library(tidyverse)
 library(haven)
-
-#Load package "here"
 library("here")
 
-# Get wd:
+#Get wd:
 here::here()
 
 #Import data set:
-#data_cs <- read_dta(file = here::here("data", "data_raw", "qog_bas_cs_jan22.dta"))
 data_ts <- read_dta(file = here::here("data", "data_raw", "qog_bas_ts_jan22.dta"))
 
-#Load package "tidyverse"
-library(tidyverse)
-
-#Select variables:
-data_ts_2 <- data_ts %>% 
+#Create a new dataset with the selected data we work with
+regdata <- data_ts %>% 
   select(
     cname, #Country name
     year, #Year               
@@ -34,9 +29,9 @@ data_ts_2 <- data_ts %>%
 summary(data_ts_2)
 
 #Run some regressions 
-regression_a <- lm(ipu_l_sw ~ arda_isgenpct, data=data_ts_2)
-regression_b <- lm(ipu_l_sw ~ arda_isgenpct+fh_ipolity2, data=data_ts_2)
-regression_c <- lm(ipu_l_sw ~ arda_isgenpct+fh_ipolity2+mad_gdppc, data=data_ts_2)
+regression_a <- lm(ipu_l_sw ~ arda_isgenpct, data=regdata)
+regression_b <- lm(ipu_l_sw ~ arda_isgenpct+fh_ipolity2, data=regdata)
+regression_c <- lm(ipu_l_sw ~ arda_isgenpct+fh_ipolity2+mad_gdppc, data=regdata)
 
 #Show results
 summary(regression_a)

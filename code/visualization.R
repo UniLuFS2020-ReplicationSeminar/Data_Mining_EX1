@@ -1,17 +1,19 @@
-#GGplot code for the group 
+#Data Mining / Universität Luzern
+#CE1
+#Part 2: Some plots
 
+#Load package "tidyverse", "haven" as well as "here"
 library(tidyverse)
 library(haven)
+library("here")
 
-#loading dataset
-
+#Get wd:
 here::here()
 
+#Import data set:
 dataset <- read_dta("../data/data_raw/qog_bas_ts_jan22.dta")
 
-
-#creating new dataset with the columns to work with
-
+#Create a new dataset with the selected data we work with
 ggdata <- dataset %>% 
   select(
     cname, #Country name
@@ -23,7 +25,7 @@ ggdata <- dataset %>%
   )%>% 
   filter(year==2010)
 
-#Share of Women in Boxplot
+#Boxplot: Share of Women in Parliament (Lower ans Single Houses)
 plot_box_women <- ggplot(ggdata, aes(x = ipu_l_sw))+
   geom_boxplot(fill = 'lightblue')+ 
   labs(title = "Share of Women (Lower and Single Houses)", 
@@ -32,9 +34,8 @@ plot_box_women <- ggplot(ggdata, aes(x = ipu_l_sw))+
                       x = "share of women in percentage", 
   )
 
-
-#Islam vs Level of Democracy Regression
-plot_lm <- ggplot(ggdata, aes(x = arda_isgenpct, y = fh_ipolity2))+
+#Plot: Regression Level of Democracy on Islam
+plot_reg <- ggplot(ggdata, aes(x = arda_isgenpct, y = fh_ipolity2))+
   geom_smooth()+
   geom_point()+
   labs(title = "Relationship Islam and Democracy", 
@@ -44,10 +45,11 @@ plot_lm <- ggplot(ggdata, aes(x = arda_isgenpct, y = fh_ipolity2))+
        y = "Level of Democracy"
   )
 
-#Share of Women % vs Level of Democracy
+#Filter data: Only countries with more than 40% share of women 
 filtered_data <- ggdata %>%
   filter(ipu_l_sw > 40)
 
+#Plot: Scatter showing countries with more than 40% women in the parliament
 plot_scatter_women <-  ggplot(filtered_data, aes(x = fh_ipolity2, y = ipu_l_sw)) +
   geom_point(aes(color = cname)) +
   # geom_text(aes(label = cname), nudge_y = 0.5) +
@@ -56,7 +58,3 @@ plot_scatter_women <-  ggplot(filtered_data, aes(x = fh_ipolity2, y = ipu_l_sw))
        subtitle = "Filtered by Share of Women > 40%",
        x = "Level of Democracy",
        y = "Share of Women (%)")
-
-
-
-
