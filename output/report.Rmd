@@ -55,16 +55,6 @@ source("../code/regression.R")
 
 ```
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
-
-captions <- c("(a) Regression Analysis by Level of Democracy",
-              "(b) Regression Analysis by % of adherents to Islam",
-              "(c) Regression Analysis by GPD per Capita",
-              "(d) Regression Analysis by All Independent Variables")
-
-```
-
-
 
 ```{r Regression side by side, echo=FALSE, warning=FALSE, message= FALSE, fig.show="hold", out.width="50%"}
 par(mar = c(4, 4, .1, .1))
