@@ -9,7 +9,7 @@ urlcolor: 'blue'
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
 ## Introduction
@@ -40,6 +40,9 @@ The proportion of women in the lower and single houses of parliament may be lowe
 ## Methods 
 
 
+### Visualizations
+
+Data Exploration
 
 ### Regressionanalyisis
 
@@ -62,8 +65,8 @@ captions <- c("(a) Regression Analysis by Level of Democracy",
 ```
 
 
-<!-- 
-```{r Regression side by side, echo=FALSE, warning=FALSE, message= FALSE, fig.show="hold", out.width="50%", fig.cap='Regression Plots I', fig.subcap=captions[1:2]}
+
+```{r Regression side by side, echo=FALSE, warning=FALSE, message= FALSE, fig.show="hold", out.width="50%"}
 par(mar = c(4, 4, .1, .1))
 #Level of Democracy 
 ggplot(data_ts_2, aes(x = fh_ipolity2, y = ipu_l_sw)) +
@@ -82,7 +85,7 @@ ggplot(data_ts_2, aes(x = arda_isgenpct, y = ipu_l_sw)) +
 
 ```
 
-```{r Part 2 Regressions, echo=FALSE,warning=FALSE, message= FALSE, fig.show="hold", out.width="50%", fig.cap='Regression Plots II',fig.subcap=captions[3:4]}
+```{r Part 2 Regressions, echo=FALSE,warning=FALSE, message= FALSE, fig.show="hold", out.width="50%"}
 par(mar = c(4, 4, .1, .1))
 #Real GDP per Capita
 ggplot(data_ts_2, aes(x = mad_gdppc, y = ipu_l_sw)) +
@@ -100,7 +103,7 @@ ggplot(data_ts_2, aes(x = arda_isgenpct+fh_ipolity2+mad_gdppc, y = ipu_l_sw)) +
 
 
 ```
- -->
+  
 
 ```{r Stargazer Regressionanalysis, results='asis'}
 #Load package "labelled" to generate table
@@ -121,22 +124,9 @@ stargazer(regression_a, regression_b, regression_c,
           type = 'latex')
 ```
 
+\newpage
 
+## Results  
 
-
-## Visualizations
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
-
-
-
-## Results
-
-
-## Discussion
+In the graphics aswell as in the regression we see that having Islam as State religion it has a negative influence on the womens' share in parliament and the democracy index.
+In the regression we controlled for additional variables. Even though the data is one sided we would need to consider more variables that could have on womens' share and democracy index next to Islam. With this data alone we cannot conclude that Islam is the only nor the biggest factor that has influence on the above mentioned points.
