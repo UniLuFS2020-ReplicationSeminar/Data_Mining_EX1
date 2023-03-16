@@ -1,6 +1,6 @@
 ---
 title: "Class Excercise 1"
-author: "Miguel, Patrick Stöckli, Tobias Hoesli"
+author: "Miguel Corredera Payo, Patrick Stöckli (14-103-675), Tobias Hoesli"
 date: "`r Sys.Date()`"
 output:
   pdf_document:
