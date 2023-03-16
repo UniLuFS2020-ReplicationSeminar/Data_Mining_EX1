@@ -52,7 +52,7 @@ source("../code/visualization.R")
 par(mar = c(4, 4, .1, .1))
 
 plot_box_women
-plot_point_women
+plot_scatter_women
 
 ```
 

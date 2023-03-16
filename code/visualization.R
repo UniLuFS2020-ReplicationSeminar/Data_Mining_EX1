@@ -33,20 +33,6 @@ plot_box_women <- ggplot(ggdata, aes(x = ipu_l_sw))+
   )
 
 
-#Share of Women % vs Level of Democracy
-filtered_data <- ggdata %>%
-  filter(ipu_l_sw > 40)
-
-plot_point_women <-  ggplot(filtered_data, aes(x = fh_ipolity2, y = ipu_l_sw)) +
-  geom_point(aes(color = cname)) +
-  # geom_text(aes(label = cname), nudge_y = 0.5) +
-  scale_color_discrete(name = "Country") +
-  labs(title = "Share of Women % vs Level of Democracy",
-       subtitle = "Filtered by Share of Women > 40%",
-       x = "Level of Democracy",
-       y = "Share of Women (%)")
-
-
 #Islam vs Level of Democracy Regression
 plot_lm <- ggplot(ggdata, aes(x = arda_isgenpct, y = fh_ipolity2))+
   geom_smooth()+
@@ -57,3 +43,20 @@ plot_lm <- ggplot(ggdata, aes(x = arda_isgenpct, y = fh_ipolity2))+
        x = "Islam",
        y = "Level of Democracy"
   )
+
+#Share of Women % vs Level of Democracy
+filtered_data <- ggdata %>%
+  filter(ipu_l_sw > 40)
+
+plot_scatter_women <-  ggplot(filtered_data, aes(x = fh_ipolity2, y = ipu_l_sw)) +
+  geom_point(aes(color = cname)) +
+  # geom_text(aes(label = cname), nudge_y = 0.5) +
+  scale_color_discrete(name = "Country") +
+  labs(title = "Share of Women % vs Level of Democracy",
+       subtitle = "Filtered by Share of Women > 40%",
+       x = "Level of Democracy",
+       y = "Share of Women (%)")
+
+
+
+
