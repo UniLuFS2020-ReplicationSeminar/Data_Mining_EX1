@@ -72,7 +72,7 @@ source("../code/regression.R")
 ```{r Regression side by side, echo=FALSE, warning=FALSE, message= FALSE, fig.show="hold", out.width="50%"}
 par(mar = c(4, 4, .1, .1))
 #Level of Democracy 
-ggplot(data_ts_2, aes(x = fh_ipolity2, y = ipu_l_sw)) +
+ggplot(regdata, aes(x = fh_ipolity2, y = ipu_l_sw)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   labs(x = "Level of Democracy (Freedom House/Imputed Polity)", y = "Share of Women (Lower and Single Houses)")+
@@ -80,7 +80,7 @@ ggplot(data_ts_2, aes(x = fh_ipolity2, y = ipu_l_sw)) +
 
 
 #Islam: Total (%Adherents)
-ggplot(data_ts_2, aes(x = arda_isgenpct, y = ipu_l_sw)) +
+ggplot(regdata, aes(x = arda_isgenpct, y = ipu_l_sw)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   labs(x = "Islam: Total (% Adherents)s", y = "Share of Women (Lower and Single Houses)")+
@@ -91,13 +91,13 @@ ggplot(data_ts_2, aes(x = arda_isgenpct, y = ipu_l_sw)) +
 ```{r Part 2 Regressions, echo=FALSE,warning=FALSE, message= FALSE, fig.show="hold", out.width="50%"}
 par(mar = c(4, 4, .1, .1))
 #Real GDP per Capita
-ggplot(data_ts_2, aes(x = mad_gdppc, y = ipu_l_sw)) +
+ggplot(regdata, aes(x = mad_gdppc, y = ipu_l_sw)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   labs(x = "GDP per Capita", y = "Share of Women (Lower and Single Houses)")+
   ggtitle("Regression Analysis by GPD per Capita")
 # All independent variables 
-ggplot(data_ts_2, aes(x = arda_isgenpct+fh_ipolity2+mad_gdppc, y = ipu_l_sw)) +
+ggplot(regdata, aes(x = arda_isgenpct+fh_ipolity2+mad_gdppc, y = ipu_l_sw)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   labs(x = "Independent Variables", y = "Share of Women (Lower and Single Houses)")+
