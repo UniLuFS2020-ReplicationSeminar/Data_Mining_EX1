@@ -5,6 +5,8 @@ library(haven)
 
 #loading dataset
 
+here::here()
+
 dataset <- read_dta("data/data_raw/qog_bas_ts_jan22.dta")
 
 View(dataset)
@@ -31,5 +33,16 @@ plot1 <- ggplot(ggdata, aes(x = ipu_l_sw))+
                       x = "share of women in percentage", 
   )
 
-print(plot1)
+plot2 <- ggplot(ggdata, aes(x = arda_isgenpct, y = fh_ipolity2))+
+  geom_smooth()+
+  geom_point()+
+  labs(title = "Relationship Islam and Democracy", 
+       subtitle = "Negative relationship of Islam and Democracy", 
+       caption = "THE QOG BASIC DATASET 2022", 
+       x = "Islam",
+       y = "Level of Democracy"
+  )
+
+  
+print(plot2)
 
