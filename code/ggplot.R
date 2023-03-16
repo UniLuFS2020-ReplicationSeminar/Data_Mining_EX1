@@ -43,6 +43,9 @@ plot2 <- ggplot(ggdata, aes(x = arda_isgenpct, y = fh_ipolity2))+
        y = "Level of Democracy"
   )
 
-  
+#Comment for the end of the document: In the graphics aswell as in the regression we see that having Islam as State religion it has a negative influence on the womens' share in parliament and the democracy index. 
+#In the regression we controlled for additional variables. Even though the data is one sided we would need to consider more variables that could have on womens' share and democracy index next to Islam.
+#With this data alone we cannot conclude that Islam is the only nor the biggest factor that has influence on the above mentioned points. 
+
 print(plot2)
 
