@@ -59,7 +59,7 @@ plot_point_women
 
 ### Regressionanalysis
 
-Some Text to describe what we did.
+This research utilizes linear regression to evaluate the link between the proportion of women in parliament (lower and single houses) and a number of independent factors, including the percentage of Muslims, the degree of democracy, and real GDP per capita, from the data ts dataset for the year 2010. Using R's lm() function, three linear regression models are estimated. The stargazer() method is then used to depict the outcomes of these regressions. This function creates a table with the coefficients, standard errors, R-squared values, and number of observations for each independent variable.
 
 
 ```{r Load TS Data and Regressions, warning=FALSE, message=FALSE}
