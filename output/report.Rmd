@@ -22,11 +22,11 @@ Based on the dataset, we want to answer the following research question.
 
 **What are the drivers of the percentage of women in parliament (lower and single houses)?** 
 
-We choose to evaluate three potential factors, namely:
+We choose to evaluate three potential factors, namely:  
 
-1.  the level of democracy
-2.  the percentage of adherents of Islam 
-3.  real GDP per capita
+1.  The level of democracy
+2.  The percentage of adherents of Islam 
+3.  Real GDP per capita
 
 ### Empirical Hypotheses
 
@@ -36,11 +36,12 @@ The percentage of women in parliament might be lower in nations with a higher pe
 
 In contrast, it is hard to believe that the percentage of women in parliament is related to economic conditions. 
 
-Therefore we hypothesize that:  
-- Greater levels of democracy will result in a higher percentage of women serving in parliament.
-- There are fewer women in parliament in nations with a higher percentage of adherents of Islam.
-- Real GDP per capita should have no effect on the percentage of women in parliament.
+Therefore we hypothesize that:   
 
+- Greater levels of democracy will result in a higher percentage of women serving in parliament. 
+- There are fewer women in parliament in nations with a higher percentage of adherents of Islam. 
+- Real GDP per capita should have no effect on the percentage of women in parliament.  
+ 
 ## Methods
 
 We choose a mix between visualizations for first hints as well as linear regressions models. We estimate four linear regression models: Each potential factor individually as well as one model with all three potential factors together. Due to data availability reasons we use data from the year 2010 for this analysis.
@@ -93,7 +94,8 @@ stargazer(regression_a, regression_b, regression_c, regression_d,
           notes.align = "c", 
           notes.label="",
           no.space=TRUE,
-          type = 'latex')
+          type = 'latex',
+          header = FALSE)
 ```
 
 \newpage
@@ -136,7 +138,7 @@ ggplot(regdata, aes(x = arda_isgenpct+fh_ipolity2+mad_gdppc, y = ipu_l_sw)) +
 
 ```
 
-We see that: 
+We see that:   
 
 - The level of democracy has a positive correlation
 - The percentage of adherents of Islam has a statistically significant negative correlation
