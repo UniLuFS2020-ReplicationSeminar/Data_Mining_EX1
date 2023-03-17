@@ -149,5 +149,4 @@ This indicates that there are fewer women in the parliament of countries with mo
 
 ## Discussion / Conclusion
 
-
 With the data that we used here alone, we can not conclude that this is a causal effect. Low R-squared values for all four models suggest that they do not adequately account for the variation in the dependent variable. There might be other factors that are equally or even more important.
