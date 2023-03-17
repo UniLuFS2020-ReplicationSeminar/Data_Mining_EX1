@@ -26,7 +26,7 @@ regdata <- data_ts %>%
   filter(year==2010)
 
 #Summary statistics of the data sets
-summary(data_ts_2)
+summary(regdata)
 
 #Run some regressions 
 regression_a <- lm(ipu_l_sw ~ arda_isgenpct, data=regdata)
