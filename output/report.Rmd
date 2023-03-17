@@ -1,6 +1,6 @@
 ---
 title: "Class Excercise 1"
-author: "Miguel Corredera Payo (14-533-079), Patrick Stöckli (14-103-675), Tobias Hoesli"
+author: "Miguel Corredera Payo (14-533-079), Patrick Stöckli (14-103-675), Tobias Hoesli (17-494-659)"
 date: "`r Sys.Date()`"
 output:
   pdf_document:
@@ -141,6 +141,6 @@ stargazer(regression_a, regression_b, regression_c, regression_d,
 
 We see that the level of democracy has a positive and the percentage of adherents of Islam has a statistically significant negative correlation with the percentage of women in parliament. This indicates that there are fewer women in the parliament of countries with more adherents of Islam. We also see that real GDP per capita is not correlated with the percentage of women in parliament. The same holds when all variables are included in the regression model. However, low R-squared values for all four models suggest that they do not adequately account for the variation in the dependent variable.
 
-## Discussion / conlusion
+## Discussion / Conclusion
 
 As a result of this analysis, it can be concluded that there is evidence to support the hypothesis that countries with a high percentage of adherents of Islam have a lower proportion of women in parliament. However, with this data alone, we can not conclude that the latter is a causal effect. Even if so, there might also be other factors that are equally important or even more important.
