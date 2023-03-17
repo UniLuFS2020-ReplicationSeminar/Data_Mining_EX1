@@ -1,6 +1,6 @@
 ---
 title: "Class Excercise 1"
-author: "Miguel Corredera Payo (14-533-079), Patrick Stöckli (14-103-675), Tobias Hoesli"
+author: "Miguel Corredera Payo (14-533-079), Patrick Stöckli (14-103-675), Tobias Hoesli (17-494-659)"
 date: "`r Sys.Date()`"
 output:
   pdf_document:
@@ -146,6 +146,8 @@ with the percentage of women in parliament.
 
 This indicates that there are fewer women in the parliament of countries with more adherents of Islam. The same holds when all variables are included in the regression model. 
 
-## Discussion / Conlusion
+
+## Discussion / Conclusion
+
 
 With the data that we used here alone, we can not conclude that this is a causal effect. Low R-squared values for all four models suggest that they do not adequately account for the variation in the dependent variable. There might be other factors that are equally or even more important.
