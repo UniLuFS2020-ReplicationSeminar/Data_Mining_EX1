@@ -142,9 +142,7 @@ We see that:
 
 - The level of democracy has a positive correlation
 - The percentage of adherents of Islam has a statistically significant negative correlation
-- Real GDP per capita is not correlated
-
-with the percentage of women in parliament. 
+- Real GDP per capita is not correlated with the percentage of women in parliament. 
 
 This indicates that there are fewer women in the parliament of countries with more adherents of Islam. The same holds when all variables are included in the regression model. 
 
