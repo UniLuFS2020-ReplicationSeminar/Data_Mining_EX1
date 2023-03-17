@@ -18,7 +18,7 @@ For this class excersise (CE1), we use the dataset **Quality of Governnment** pr
 
 ### Research Questions
 
-Based on the dataset, we want to answer the following research question.
+Based on the dataset, we want to answer the following research question:
 
 **What are the drivers of the percentage of women in parliament (lower and single houses)?** 
 
@@ -32,14 +32,14 @@ We choose to evaluate three potential factors, namely:
 
 Higher degrees of democracy may lead to more open political structures and, as a result, a higher percentage of women in parliament. 
 
-The percentage of women in parliament might be lower in nations with a higher percentage of adherents of Islam due to cultural or religious norms that restrict women's involvement in politics. 
+The percentage of women in parliament might be lower in countries with a higher percentage of adherents of Islam due to cultural or religious norms that restrict women's involvement in politics. 
 
-In contrast, it is hard to believe that the percentage of women in parliament is related to economic conditions. 
+In contrast, it is hard to believe that the percentage of women in parliament is related to economic activity. 
 
 Therefore we hypothesize that:   
 
-- Greater levels of democracy will result in a higher percentage of women serving in parliament. 
-- There are fewer women in parliament in nations with a higher percentage of adherents of Islam. 
+- Greater levels of democracy results in a higher percentage of women serving in parliament. 
+- There are fewer women in parliament in countries with a higher percentage of adherents of Islam. 
 - Real GDP per capita should have no effect on the percentage of women in parliament.  
  
 ## Methods
@@ -50,9 +50,9 @@ We choose a mix between visualizations for first hints as well as linear regress
 
 ### Visualizations
 
-In the first plot, which is a boxplot, the percentage of women lower and single houses of parliament across all nations is shown. 
+In the first plot, which is a boxplot, the percentage of women in parliament across all countries is shown. 
 
-The second plot - a scatter plot - plots nations where the share of women in parliament is higher than 40% with the corresponding level of democracy on the x-axis.\
+The second plot - a scatter plot - plots countries where the share of women in parliament is higher than 40% with the corresponding level of democracy on the x-axis.\
 
 ```{r, echo=FALSE}
 
@@ -107,7 +107,7 @@ ggplot(regdata, aes(x = fh_ipolity2, y = ipu_l_sw)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   labs(x = "Level of Democracy (Freedom House/Imputed Polity)", y = "Share of Women (Lower and Single Houses)")+
-  ggtitle("Regression Analysis by Level of Democracy")
+  ggtitle("Regression: % of women in parliament on level of Democracy")
 
 
 #Islam: Total (%Adherents)
@@ -115,7 +115,7 @@ ggplot(regdata, aes(x = arda_isgenpct, y = ipu_l_sw)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   labs(x = "Islam: Total (% Adherents)s", y = "Share of Women (Lower and Single Houses)")+
-  ggtitle("Regression Analysis by % of adherents to Islam")
+  ggtitle("Regression: % of women in parliament on % of adherents of Islam")
 
 ```
 
@@ -126,13 +126,13 @@ ggplot(regdata, aes(x = mad_gdppc, y = ipu_l_sw)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   labs(x = "GDP per Capita", y = "Share of Women (Lower and Single Houses)")+
-  ggtitle("Regression Analysis by GPD per Capita")
+  ggtitle("Regression: % of women in parliament on GPD per Capita")
 # All independent variables 
 ggplot(regdata, aes(x = arda_isgenpct+fh_ipolity2+mad_gdppc, y = ipu_l_sw)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   labs(x = "Independent Variables", y = "Share of Women (Lower and Single Houses)")+
-  ggtitle("Regression Analysis by All Independent Variables")
+  ggtitle("Regression: % of women in parliament on all three factors")
 
 
 
@@ -140,8 +140,8 @@ ggplot(regdata, aes(x = arda_isgenpct+fh_ipolity2+mad_gdppc, y = ipu_l_sw)) +
 
 We see that:   
 
-- The level of democracy has a positive correlation
-- The percentage of adherents of Islam has a statistically significant negative correlation
+- The level of democracy has a positive correlation with the percentage of women in parliament.
+- The percentage of adherents of Islam has a statistically significant negative correlation with the percentage of women in parliament.
 - Real GDP per capita is not correlated with the percentage of women in parliament. 
 
 This indicates that there are fewer women in the parliament of countries with more adherents of Islam. The same holds when all variables are included in the regression model. 
