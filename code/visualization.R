@@ -26,7 +26,7 @@ ggdata <- dataset %>%
   filter(year==2010)
 
 #Boxplot: Share of Women in Parliament (Lower ans Single Houses)
-plot_box_women <- ggplot(ggdata, aes(x = ipu_l_sw))+
+boxplot_women <- ggplot(ggdata, aes(x = ipu_l_sw))+
   geom_boxplot(fill = 'lightblue')+ 
   labs(title = "Share of Women (Lower and Single Houses)", 
                       subtitle = "Rwanda has the highest share with 56.3", 
@@ -50,7 +50,7 @@ filtered_data <- ggdata %>%
   filter(ipu_l_sw > 40)
 
 #Plot: Scatter showing countries with more than 40% women in the parliament
-plot_scatter_women <-  ggplot(filtered_data, aes(x = fh_ipolity2, y = ipu_l_sw)) +
+plot_point_women <-  ggplot(filtered_data, aes(x = fh_ipolity2, y = ipu_l_sw)) +
   geom_point(aes(color = cname)) +
   # geom_text(aes(label = cname), nudge_y = 0.5) +
   scale_color_discrete(name = "Country") +

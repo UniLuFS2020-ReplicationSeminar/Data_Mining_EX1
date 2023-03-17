@@ -62,8 +62,8 @@ source("../code/visualization.R")
 ```{r Plots Exploration ,echo=FALSE, warning=FALSE, message= FALSE, fig.show="hold", out.width="50%"}
 par(mar = c(4, 4, .1, .1))
 
-plot_box_women
-plot_scatter_women
+boxplot_women
+plot_point_women
 
 ```
 
