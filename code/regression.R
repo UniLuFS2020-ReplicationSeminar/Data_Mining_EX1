@@ -29,24 +29,26 @@ regdata <- data_ts %>%
 summary(regdata)
 
 #Run some regressions 
-regression_a <- lm(ipu_l_sw ~ arda_isgenpct, data=regdata)
-regression_b <- lm(ipu_l_sw ~ arda_isgenpct+fh_ipolity2, data=regdata)
-regression_c <- lm(ipu_l_sw ~ arda_isgenpct+fh_ipolity2+mad_gdppc, data=regdata)
+regression_a <- lm(ipu_l_sw ~ fh_ipolity2, data=regdata)
+regression_b <- lm(ipu_l_sw ~ arda_isgenpct, data=regdata)
+regression_c <- lm(ipu_l_sw ~ mad_gdppc, data=regdata)
+regression_d <- lm(ipu_l_sw ~ arda_isgenpct+fh_ipolity2+mad_gdppc, data=regdata)
 
 #Show results
 summary(regression_a)
 summary(regression_b)
 summary(regression_c)
+summary(regression_d)
 
 # #Load package "labelled" to generate table
 # library(stargazer)
 # 
 # #Generate a well-formatted table
-# stargazer(regression_a, regression_b, regression_c, 
+# stargazer(regression_a, regression_b, regression_c, regression_d,
 #           title="Regression on the Share of Women in Parliament (Lower and Single Houses) ", 
 #           dep.var.caption="", 
 #           dep.var.labels.include=FALSE,
-#           covariate.labels=c("Islam","Level of Democracy", "Real GDP per Capita"), 
+#           covariate.labels=c("Level of Democracy", "Islam", "Real GDP per Capita"), 
 #           digits=2,
 #           keep.stat=c("rsq", "adj.rsq", "n"), 
 #           notes=c("Notes: Standard errors in parentheses."), 
