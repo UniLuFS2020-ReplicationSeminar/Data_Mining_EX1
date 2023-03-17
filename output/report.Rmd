@@ -14,17 +14,15 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 
 ## Introduction
 
-For this class excersise (CE1), we use the dataset **Quality of Governnment** provided by the Quality of Government (QoG) Institute at the University of Gothenburg. The dataset is a compilation drawn from more than one hundred different sources. Data for nations prior to their independence is excluded, and variables with sparse coverage are eliminated.  
-
-The dataset is available in a cross-sectional as well as time-series form. The latter - which is the one that we use - includes data from 1946 to 2021. Basic information about the variables as well as a bar graph showing the availability of data for each year are provided in the codebook. You can find the codebook [here](https://github.com/UniLuFS2020-ReplicationSeminar/Data_Mining_EX1/blob/f8314e3e5aef74dd7a3f3a26b7e0ffe7b2a4d3c3/data/codebook_bas_jan22.pdf).
+For this class excersise (CE1), we use the dataset **Quality of Governnment** provided by the Quality of Government (QoG) Institute at the University of Gothenburg.
 
 ### Research Questions
 
-Based on the dataset we wanted to answer the following research question.
+Based on the dataset, we want to answer the following research question.
 
-**What are the drivers of the percentage of women in lower and single houses of parliament?** 
+**What are the drivers of the percentage of women in parliament (lower and single houses)?** 
 
-In order to answer this research question in a short setting as this class excersise is thought to be, we choose to evaluate three potential factors, namely:
+We choose to evaluate three potential factors, namely:
 
 1.  the level of democracy
 2.  the percentage of adherents of Islam 
@@ -32,29 +30,28 @@ In order to answer this research question in a short setting as this class excer
 
 ### Empirical Hypotheses
 
-Higher degrees of democracy may lead to more open political structures and, as a result, a higher percentage of women in lower and single houses of parliament. Therefore we hypothesize that greater levels of democracy will result in a higher percentage of women serving in lower and single houses of parliament.
+Higher degrees of democracy may lead to more open political structures and, as a result, a higher percentage of women in parliament. 
 
-The percentage of women in lower and single houses of parliament might be lower in nations with a higher percentage of adherents of Islam due to cultural or religious norms that restrict women's involvement in politics. We therefore hypothesize that there are fewer women in lower and single houses of parliament in nations with a higher percentage of adherents of Islam.
+The percentage of women in parliament might be lower in nations with a higher percentage of adherents of Islam due to cultural or religious norms that restrict women's involvement in politics. 
 
-In contrast, it is hard to believe that the percentage of women in lower and single houses of parliament is related to economic conditions. Therefore, we hypothesize that real GDP per capita should have no effect on the percentage of women in lower and single houses of parliament.
+In contrast, it is hard to believe that the percentage of women in parliament is related to economic conditions. 
+
+Therefore we hypothesize that:  
+- Greater levels of democracy will result in a higher percentage of women serving in parliament.
+- There are fewer women in parliament in nations with a higher percentage of adherents of Islam.
+- Real GDP per capita should have no effect on the percentage of women in parliament.
 
 ## Methods
 
-For this class excersise (CE1) we were told to test the empirical hypothesis in different ways. Hence, we choose a mix between visualizations as well as linear regressions models to evaluate the link between the proportion of women in parliament (lower and single houses) and the three possible factors.
-
-While the visualizations should give us firsts hints, the regression analysis approach should give the more concrete answers. Using R's lm() function, we estimate four linear regression models: Each potential factor individually as well as one model with all three potential factors together. The results are shown in form of a table, which is created with the stargazer-function.
-
-Because the data availability for this three factors is limited, we use data from the year 2010 for this analysis, which is the most recent year for which there is data for all three factors.
+We choose a mix between visualizations for first hints as well as linear regressions models. We estimate four linear regression models: Each potential factor individually as well as one model with all three potential factors together. Due to data availability reasons we use data from the year 2010 for this analysis.
 
 ## Results
 
 ### Visualizations
 
-In the following charts, we examine how women are represented in parliament across different countries and political systems.
-
 In the first plot, which is a boxplot, the percentage of women lower and single houses of parliament across all nations is shown. 
 
-The second plot - a scatter plot - plots nations where the share of women in parliament is higher than 40% with the corresponding level of democracy on the x-axis. The plot also differentiates between countries by coloring the points accordingly.\
+The second plot - a scatter plot - plots nations where the share of women in parliament is higher than 40% with the corresponding level of democracy on the x-axis.\
 
 ```{r, echo=FALSE}
 
@@ -72,13 +69,34 @@ plot_scatter_women
 
 ### Regression analysis
 
-In the following charts you see regression plots as well as a table that summarizes the four linear regression models we run: Each potential factor individually as well as one model with all three potential factors together. 
+In the following you see the regression plots as well as a table that summarizes the four linear regression models we run. 
 
 ```{r Load TS Data and Regressions, warning=FALSE, message=FALSE}
 
 source("../code/regression.R")
 
 ```
+
+```{r Stargazer Regressionanalysis, echo=FALSE, results='asis'}
+#Load package "stargazer" to generate table
+library(stargazer)
+
+#Generate a well-formatted table
+stargazer(regression_a, regression_b, regression_c, regression_d, 
+          title="Regression on the Share of Women in Parliament (Lower and Single Houses) ", 
+          dep.var.caption="", 
+          dep.var.labels.include=FALSE,
+          covariate.labels=c("Level of Democracy", "Islam", "Real GDP per Capita"), 
+          digits=2,
+          keep.stat=c("rsq", "adj.rsq", "n"), 
+          notes=c("Notes: Standard errors in parentheses."), 
+          notes.align = "c", 
+          notes.label="",
+          no.space=TRUE,
+          type = 'latex')
+```
+
+\newpage
 
 ```{r Regression side by side, echo=FALSE, warning=FALSE, message= FALSE, fig.show="hold", out.width="50%"}
 par(mar = c(4, 4, .1, .1))
@@ -118,29 +136,16 @@ ggplot(regdata, aes(x = arda_isgenpct+fh_ipolity2+mad_gdppc, y = ipu_l_sw)) +
 
 ```
 
-```{r Stargazer Regressionanalysis, echo=FALSE, results='asis'}
-#Load package "stargazer" to generate table
-library(stargazer)
+We see that: 
 
-#Generate a well-formatted table
-stargazer(regression_a, regression_b, regression_c, regression_d, 
-          title="Regression on the Share of Women in Parliament (Lower and Single Houses) ", 
-          dep.var.caption="", 
-          dep.var.labels.include=FALSE,
-          covariate.labels=c("Level of Democracy", "Islam", "Real GDP per Capita"), 
-          digits=2,
-          keep.stat=c("rsq", "adj.rsq", "n"), 
-          notes=c("Notes: Standard errors in parentheses."), 
-          notes.align = "c", 
-          notes.label="",
-          no.space=TRUE,
-          type = 'latex')
-```
+- The level of democracy has a positive correlation
+- The percentage of adherents of Islam has a statistically significant negative correlation
+- Real GDP per capita is not correlated
 
-\newpage
+with the percentage of women in parliament. 
 
-We see that the level of democracy has a positive and the percentage of adherents of Islam has a statistically significant negative correlation with the percentage of women in parliament. This indicates that there are fewer women in the parliament of countries with more adherents of Islam. We also see that real GDP per capita is not correlated with the percentage of women in parliament. The same holds when all variables are included in the regression model. However, low R-squared values for all four models suggest that they do not adequately account for the variation in the dependent variable.
+This indicates that there are fewer women in the parliament of countries with more adherents of Islam. The same holds when all variables are included in the regression model. 
 
-## Discussion / conlusion
+## Discussion / Conlusion
 
-As a result of this analysis, it can be concluded that there is evidence to support the hypothesis that countries with a high percentage of adherents of Islam have a lower proportion of women in parliament. However, with this data alone, we can not conclude that the latter is a causal effect. Even if so, there might also be other factors that are equally important or even more important.
+With the data that we used here alone, we can not conclude that this is a causal effect. Low R-squared values for all four models suggest that they do not adequately account for the variation in the dependent variable. There might be other factors that are equally or even more important.
